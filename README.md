@@ -13,9 +13,13 @@ Funcionalidades Principales:
 
 5. Estructura modular y persistencia
 Estructura del proyecto:
+
 ├── ui/           # Interfaces gráficas y pantallas
+
 ├── viewmodel/    # Lógica y control de estados
+
 ├── data/         # Persistencia con Room o SharedPreferences
+
 Los datos se mantienen al cerrar y reabrir la aplicación.
 
 6. Recursos nativos Cámara / Galería: permite adjuntar una imagen del hábito (por ejemplo, comida saludable).GPS / Localización: guarda la ubicación del registro automáticamente.Uso responsable y seguro de permisos.
