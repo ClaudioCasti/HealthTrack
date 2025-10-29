@@ -22,6 +22,7 @@ Transiciones suaves entre pantallas.
 Animaciones simples al registrar un nuevo hábito o visualizar el historial.
 
 Estructura modular y persistencia:
+
 Estructura del proyecto:
 
 
