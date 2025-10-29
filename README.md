@@ -1,5 +1,4 @@
 # HealthTrack
-Integrantes y Desarrolladores del proyecto: David Coliqueo, Claudio Castillo
 HealthTrack es una aplicacion movil desarrollada en Android Studio la cual permite a los usuarios, registrar, visualizar y gestionar sus habitos saludables diarios. nuestro objetivo principal es ofrecer una herramienta simple y funcional que ayude a fomentar el autocuidado y la constancia en actividades como la alimentacion, hidratacion y ejercicio fisico 
 
 Funcionalidades Principales:
@@ -16,3 +15,4 @@ Estructura del proyecto:
 Los datos se mantienen al cerrar y reabrir la aplicación.
 6. Recursos nativos Cámara / Galería: permite adjuntar una imagen del hábito (por ejemplo, comida saludable).GPS / Localización: guarda la ubicación del registro automáticamente.Uso responsable y seguro de permisos.
 7. Herramientas colaborativas Repositorio público en GitHub con commits descriptivos. Archivo README.md (este documento). Gestión en Trello, con planificación y tareas asignadas por integrante.
+Integrantes y Desarrolladores del proyecto: David Coliqueo, Claudio Castillo
