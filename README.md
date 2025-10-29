@@ -24,8 +24,11 @@ Animaciones simples al registrar un nuevo hábito o visualizar el historial.
 Estructura modular y persistencia:
 Estructura del proyecto:
 
+
 ├── ui/           # Interfaces gráficas y pantallas
+
 ├── viewmodel/    # Lógica y control de estados
+
 ├── data/         # Persistencia con Room o SharedPreferences
 
 
