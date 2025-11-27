@@ -1,269 +1,119 @@
-# HealthTrack - Aplicación de Seguimiento de Hábitos Saludables
+HealthTrack
 
-## Descripción
+HealthTrack es una aplicación móvil desarrollada en Android Studio que permite a los usuarios registrar, visualizar y gestionar sus hábitos saludables diarios. Nuestro objetivo principal es ofrecer una herramienta simple y funcional que fomente el autocuidado y la constancia en actividades como la alimentación, hidratación y ejercicio físico.
 
-HealthTrack es una aplicación Android moderna desarrollada con Kotlin y Jetpack Compose que permite a los usuarios registrar y monitorear sus hábitos saludables diarios, incluyendo:
+Funcionalidades principales
+Interfaz visual organizada
 
-- Consumo de agua: Registra cuánta agua bebes diariamente  
-- Comidas: Registra tus comidas con fotos, calorías y ubicación  
-- Ejercicio: Registra tus actividades físicas y calorías quemadas  
-- Resumen visual: Visualiza tu progreso con estadísticas y gráficos  
-- Historial: Consulta todos tus registros anteriores  
+Pantalla de inicio con navegación hacia las secciones de registro de hábitos, historial de registros y perfil del usuario.
 
-## Características Principales
+Diseño coherente y limpio, con una distribución clara de botones y campos.
 
-### Formularios Validados
-- Validación de campos requeridos  
-- Tipos de entrada apropiados (números, texto)  
-- Mensajes de error claros y útiles  
+Formularios validados
 
-### Integración de Cámara
-- Permite tomar fotos de las comidas directamente desde la aplicación  
-- Las fotos se guardan localmente y se asocian con cada registro  
+Campos para tipo de hábito (agua, ejercicio, alimentación, etc.), descripción o cantidad y fecha.
 
-### Geolocalización
-- Registra automáticamente la ubicación donde se consumen los alimentos  
-- Muestra el nombre de la ubicación mediante geocodificación  
-- Funciona con permisos de ubicación precisa y aproximada  
+Validaciones visuales con íconos e indicaciones.
 
-### Persistencia Local
-- Base de datos Room para almacenamiento local  
-- Los datos persisten entre sesiones  
-- No requiere conexión a internet  
+Control lógico separado de la interfaz (patrón MVVM o controlador).
 
-### Visualización de Datos
-- Resumen diario con metas  
-- Gráficos de progreso circulares  
-- Balance calórico (calorías consumidas vs quemadas)  
-- Indicadores visuales de cumplimiento de metas  
+Lógica desacoplada
 
-## Tecnologías Utilizadas
+Manejo de validaciones y estados desde el ViewModel o clases lógicas separadas.
 
-### Lenguaje y Framework
-- Kotlin  
-- Jetpack Compose  
-- Material Design 3  
+Separación entre la capa visual y la lógica de negocio.
 
-### Arquitectura
-- MVVM (Model-View-ViewModel)  
-- Repository Pattern  
-- StateFlow para manejo reactivo del estado  
+Animaciones funcionales
 
-### Bibliotecas Principales
-- Room (base de datos local SQLite)  
-- Navigation Compose  
-- Coil (carga y visualización de imágenes)  
-- CameraX  
-- Google Play Services Location  
-- Accompanist Permissions  
+Transiciones suaves entre pantallas.
 
-## Estructura del Proyecto
+Animaciones simples al registrar un nuevo hábito o visualizar el historial.
 
-com.example.healthtrack/
-├── data/
-│ ├── local/
-│ │ ├── AppDatabase.kt
-│ │ ├── Converters.kt
-│ │ ├── WaterIntakeDao.kt
-│ │ ├── MealRecordDao.kt
-│ │ └── ExerciseDao.kt
-│ ├── model/
-│ │ ├── WaterIntake.kt
-│ │ ├── MealRecord.kt
-│ │ └── Exercise.kt
-│ └── repository/
-│ └── HealthRepository.kt
-├── navigation/
-│ ├── Screen.kt
-│ └── AppNavigation.kt
-├── ui/
-│ ├── screens/
-│ │ ├── HomeScreen.kt
-│ │ ├── WaterIntakeScreen.kt
-│ │ ├── MealRecordScreen.kt
-│ │ ├── ExerciseScreen.kt
-│ │ ├── HistoryScreen.kt
-│ │ └── SummaryScreen.kt
-│ ├── viewmodel/
-│ │ ├── WaterIntakeViewModel.kt
-│ │ ├── MealRecordViewModel.kt
-│ │ ├── ExerciseViewModel.kt
-│ │ └── SummaryViewModel.kt
-│ └── theme/
-│ ├── Color.kt
-│ ├── Theme.kt
-│ └── Type.kt
-├── utils/
-│ ├── CameraUtils.kt
-│ ├── LocationHelper.kt
-│ └── DateUtils.kt
-└── MainActivity.kt
+Estructura modular y persistencia
+├── ui/           # Interfaces gráficas y pantallas
+├── viewmodel/    # Lógica y control de estados
+├── data/         # Persistencia con Room o SharedPreferences
 
-markdown
-Copiar código
 
-## Permisos Requeridos
+Los datos se mantienen al cerrar y reabrir la aplicación.
 
-- CAMERA: Para tomar fotos de las comidas  
-- ACCESS_FINE_LOCATION: Para obtener la ubicación precisa  
-- ACCESS_COARSE_LOCATION: Para obtener la ubicación aproximada  
-- INTERNET: Para servicios de geocodificación  
+Recursos nativos
+Cámara / galería
 
-## Pantallas de la Aplicación
+Permite adjuntar una imagen del hábito (por ejemplo, una comida saludable).
 
-### 1. Pantalla Principal (Home)
-- Resumen del día actual  
-- Accesos rápidos a cada funcionalidad  
-- Estadísticas en tiempo real  
+GPS / localización
 
-### 2. Registro de Agua
-- Formulario para registrar la cantidad de agua  
-- Visualización del total diario  
-- Barra de progreso hacia la meta (2000 ml)  
-- Historial de registros  
+Guarda la ubicación del registro automáticamente, utilizando una implementación segura del sistema de permisos del dispositivo.
 
-### 3. Registro de Comidas
-- Selección del tipo de comida (Desayuno, Almuerzo, Cena, Snack)  
-- Descripción de la comida  
-- Calorías (opcional)  
-- Foto de la comida (con cámara)  
-- Ubicación automática  
-- Notas adicionales  
+✅ Integración de API externa: Consejos motivacionales
 
-### 4. Registro de Ejercicio
-- Tipo de ejercicio  
-- Duración en minutos  
-- Calorías quemadas (opcional)  
-- Notas adicionales  
+HealthTrack integra una API pública externa para mostrar consejos motivacionales de bienestar dentro de la aplicación. Esta funcionalidad ayuda a reforzar hábitos positivos con mensajes breves y directos.
 
-### 5. Historial
-- Vista unificada de todos los registros  
-- Organizado por categorías  
-- Opción para eliminar registros  
+API utilizada
 
-### 6. Resumen y Estadísticas
-- Gráficos de progreso  
-- Metas diarias con porcentajes  
-- Balance calórico  
-- Estadísticas generales  
+Advice Slip API
+URL base: https://api.adviceslip.com/advice
+Proporciona frases motivacionales en inglés mediante solicitudes HTTP GET.
 
-## Configuración del Proyecto
+Tecnologías usadas
 
-### Requisitos Previos
-- Android Studio Hedgehog o superior  
-- Kotlin 2.0.21  
-- SDK mínimo: Android 7.0 (API 24)  
-- SDK objetivo: Android 15 (API 36)  
+Retrofit 2.11.0 → Para realizar las solicitudes HTTP.
 
-### Pasos para Ejecutar
+Gson Converter → Para parsear el JSON recibido desde la API.
 
-1. Clonar o abrir el proyecto en Android Studio  
-2. Sincronizar Gradle  
-   - Android Studio sincronizará automáticamente las dependencias  
-   - Si no lo hace, ejecutar: **Build > Sync Project with Gradle Files**  
-3. Ejecutar la aplicación  
-   - Conectar un dispositivo Android o iniciar un emulador  
-   - Presionar **Run** o **Shift + F10**  
+Coroutines → Para manejar las llamadas de forma asíncrona.
 
-## Uso de la Aplicación
+ViewModel + StateFlow → Para exponer el estado a la UI de manera reactiva.
 
-### Registrar Agua
-1. Desde la pantalla principal, seleccionar "Agua"  
-2. Presionar el botón flotante (+)  
-3. Ingresar la cantidad en mililitros  
-4. Añadir una nota opcional  
-5. Presionar "Guardar"  
+Dónde se integra en la app
 
-### Registrar Comida
-1. Desde la pantalla principal, seleccionar "Comida"  
-2. Presionar el botón flotante (+)  
-3. Seleccionar el tipo de comida  
-4. Ingresar la descripción  
-5. Añadir calorías, foto o notas si se desea  
-6. La ubicación se captura automáticamente si los permisos están otorgados  
-7. Presionar "Guardar"  
+El consejo se muestra en la pantalla de Resumen (SummaryScreen) a través de un componente llamado MotivationCard, que permite:
 
-### Registrar Ejercicio
-1. Desde la pantalla principal, seleccionar "Ejercicio"  
-2. Presionar el botón flotante (+)  
-3. Ingresar el tipo de ejercicio  
-4. Ingresar la duración  
-5. Añadir calorías quemadas o notas si se desea  
-6. Presionar "Guardar"  
+Ver un consejo motivacional actualizado.
 
-### Ver Estadísticas
-1. Desde la pantalla principal, seleccionar "Resumen"  
-2. Visualizar las metas del día  
-3. Revisar el balance calórico  
-4. Presionar el botón de actualizar para refrescar los datos  
+Recargar un nuevo consejo con un botón “Otro consejo”.
 
-## Metas Predeterminadas
+Mostrar estado de carga o error si la API no responde.
 
-- Agua: 2000 ml por día  
-- Calorías: 2000 kcal por día  
-- Ejercicio: 30 minutos por día  
+Detalles de implementación
 
-## Base de Datos
+Archivo de cliente: MotivationRetrofitClient.kt
 
-HealthTrack utiliza Room con las siguientes tablas:
+Servicio API: MotivationApiService.kt
 
-### water_intake
-- id (PK)  
-- amountMl  
-- timestamp  
-- note  
+Modelos: AdviceSlipResponse, AdviceSlip
 
-### meal_records
-- id (PK)  
-- mealType  
-- description  
-- calories  
-- photoUri  
-- latitude  
-- longitude  
-- locationName  
-- timestamp  
-- notes  
+ViewModel: MotivationViewModel
 
-### exercises
-- id (PK)  
-- exerciseType  
-- durationMinutes  
-- caloriesBurned  
-- timestamp  
-- notes  
+Ejemplo de respuesta de la API
+{
+  "slip": {
+    "id": 180,
+    "advice": "Keep going. Everything you need will come at the perfect time."
+  }
+}
 
-## Solución de Problemas
+Visualización
 
-### La cámara no funciona
-- Verificar que los permisos de cámara estén otorgados  
-- Revisar en Configuración del dispositivo > Aplicaciones > HealthTrack > Permisos  
+La aplicación muestra:
 
-### La ubicación no se captura
-- Verificar los permisos de ubicación  
-- Activar el GPS del dispositivo  
-- Asegurarse de estar en un lugar con buena recepción  
+Un encabezado en español indicando que el contenido proviene de una API externa.
 
-### Los datos no se guardan
-- Verificar que haya espacio suficiente en el dispositivo  
-- Revisar los registros de Android Studio en caso de error  
+El consejo original en inglés (la API no soporta traducciones).
 
-## Licencia
+Botón para obtener un nuevo consejo.
 
-Este proyecto fue desarrollado con fines educativos.
+Esto cumple con el requisito de la evaluación de incorporar y reflejar visualmente datos provenientes de una API externa real.
 
-## Autor
+Herramientas colaborativas
 
-Desarrollado utilizando Android Studio y Kotlin.
+Repositorio público en GitHub con commits descriptivos y participación de ambos integrantes.
 
-## Características Futuras Posibles
+Gestión del proyecto en Trello, con planificación y tareas asignadas a cada integrante.
 
-- Gráficos semanales y mensuales  
-- Exportar datos a CSV  
-- Recordatorios para beber agua  
-- Widget de pantalla principal  
-- Modo oscuro  
-- Sincronización en la nube  
-- Análisis nutricional avanzado  
-- Integración con dispositivos portátiles  
-- Compartir logros en redes sociales 
+Integrantes del proyecto
+
+David Coliqueo
+
+Claudio Castillo
