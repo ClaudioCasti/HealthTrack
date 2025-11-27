@@ -46,7 +46,7 @@ GPS / localización
 
 Guarda la ubicación del registro automáticamente, utilizando una implementación segura del sistema de permisos del dispositivo.
 
-✅ Integración de API externa: Consejos motivacionales
+Integración de API externa: Consejos motivacionales
 
 HealthTrack integra una API pública externa para mostrar consejos motivacionales de bienestar dentro de la aplicación. Esta funcionalidad ayuda a reforzar hábitos positivos con mensajes breves y directos.
 
